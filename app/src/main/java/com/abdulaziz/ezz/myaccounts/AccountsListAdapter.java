@@ -39,11 +39,11 @@ public class AccountsListAdapter extends RecyclerView.Adapter<AccountsListAdapte
 		if (!mCursor.moveToPosition(position))
 			return;
 		long id = mCursor.getLong(mCursor.getColumnIndex(DatabaseContract.DataBaseEntry._ID));
-		String code = mCursor.getString(mCursor.getColumnIndex(DatabaseContract.DataBaseEntry.CLN_CODE));
-		String name1 = mCursor.getString(mCursor.getColumnIndex(DatabaseContract.DataBaseEntry.CLN_NAME1));
-		holder.mtvCode.setTag(id);
-		holder.mtvCode.setText(code);
-		holder.mtvCode.setText(name1);
+		String accountCode = mCursor.getString(mCursor.getColumnIndex(DatabaseContract.DataBaseEntry.CLN_ACCOUNT_CODE));
+		String accountName = mCursor.getString(mCursor.getColumnIndex(DatabaseContract.DataBaseEntry.CLN_ACCOUNT_NAME));
+		holder.mtvAccountCode.setTag(id);
+		holder.mtvAccountCode.setText(accountCode);
+		holder.mtvAccountName.setText(accountName);
 	}
 
 	@Override
@@ -67,14 +67,14 @@ public class AccountsListAdapter extends RecyclerView.Adapter<AccountsListAdapte
 
 	public class AccountsViewHolder extends RecyclerView.ViewHolder
 	{
-		TextView mtvCode;
-		TextView mtvName;
+		TextView mtvAccountCode;
+		TextView mtvAccountName;
 
 		public AccountsViewHolder(View itemView)
 		{
 			super(itemView);
-			mtvCode = itemView.findViewById(R.id.tvCode);
-			mtvName = itemView.findViewById(R.id.tvName);
+			mtvAccountCode = itemView.findViewById(R.id.tvCode);
+			mtvAccountName = itemView.findViewById(R.id.tvName);
 		}
 	}
 }
